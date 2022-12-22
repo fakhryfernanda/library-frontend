@@ -8,7 +8,7 @@ class HttpClient
 {
     static function fetch($method, $url, $body = [], $files = []) {
         if ($method == "GET") {
-            return Http::get($url)->json(); // response dengan method get
+            return Http::get($url); // response dengan method get
         }
 
         // memeriksa apakah terdapat file
