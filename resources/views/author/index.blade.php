@@ -6,24 +6,29 @@
     <table>
         <thead>
             <tr>
-                <th class="border px-4">Nama</th>
-                <th class="border px-4">Nama Asli</th>
-                <th class="border px-4">Gender</th>
-                <th class="border px-4">Tanggal Lahir</th>
-                <th class="border px-4">Foto</th>
-                <th class="border px-4"></th>
+                <th class="py-1 border px-4">Nama</th>
+                <th class="py-1 border px-4">Nama Asli</th>
+                <th class="py-1 border px-4">Gender</th>
+                <th class="py-1 border px-4">Tanggal Lahir</th>
+                <th class="py-1 border px-4">Foto</th>
+                <th class="py-1 border px-4"></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($authors as $author)
                 <tr>
-                    <td class="border px-4 text-center">{{ $author['name'] }}</td>
-                    <td class="border px-4 text-center">{{ $author['real_name'] }}</td>
-                    <td class="border px-4 text-center">{{ $author['gender'] }}</td>
-                    <td class="border px-4 text-center">{{ $author['birthdate'] }}</td>
-                    <td class="border px-4 text-center">{{ $author['image'] }}</td>
-                    <td class="border px-4 text-center text-blue-500 underline">
-                        <a href="author/detail/{{ $author['id'] }}">Detail</a>
+                    <td class="py-1 border px-4 text-center">{{ $author['name'] }}</td>
+                    <td class="py-1 border px-4 text-center">{{ $author['real_name'] }}</td>
+                    <td class="py-1 border px-4 text-center">{{ $author['gender'] }}</td>
+                    <td class="py-1 border px-4 text-center">{{ $author['birthdate'] }}</td>
+                    <td class="py-1 border px-4 text-center">{{ $author['image'] }}</td>
+                    <td class="py-1 border px-4 text-center text-blue-500 underline">
+                        <a href="author/detail/{{ $author['id'] }}" class="mr-4">Detail</a>
+                        <form action="author/delete/{{ $author['id'] }}" method="post" class="inline">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="underline">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

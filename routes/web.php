@@ -13,3 +13,4 @@ Route::get('author/add', [AuthorController::class, 'add']);
 Route::post('author/add', [AuthorController::class, 'store']);
 Route::get('author/edit/{id}', [AuthorController::class, 'edit']);
 Route::put('author/edit/{id}', [AuthorController::class, 'update']);
+Route::delete('author/delete/{id}', [AuthorController::class, 'delete']);

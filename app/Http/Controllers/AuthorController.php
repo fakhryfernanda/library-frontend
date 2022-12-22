@@ -21,7 +21,7 @@ class AuthorController extends Controller
 
         // mengambil data author
         $authors = $response["data"];
-        
+
         // Gak jalan
         // foreach($authors as $author) {
         //     $author["gender"] = $author["gender"] == 'M' ? "Pria" : "Wanita";
@@ -49,8 +49,6 @@ class AuthorController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request->all());
-
         $paylaod = $request->all();
 
         $response = Http::post(
@@ -72,11 +70,19 @@ class AuthorController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $paylaod = $request->all();
+        $payload = $request->all();
 
         $response = Http::put(
             "http://127.0.0.1:8000/api/author/edit/{$id}",
-            $paylaod
+            $payload
+        );
+
+        return redirect('author');
+    }
+
+    public function delete($id) {
+        $response = Http::delete(
+            "http://127.0.0.1:8000/api/author/delete/{$id}"
         );
 
         return redirect('author');
