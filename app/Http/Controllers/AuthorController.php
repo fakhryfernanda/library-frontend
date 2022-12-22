@@ -60,4 +60,25 @@ class AuthorController extends Controller
 
         return redirect('author');
     }
+
+    public function edit($id) {
+        $author = Http::get(
+            "http://127.0.0.1:8000/api/author/detail/{$id}"
+        )->json("data");
+
+        return view('author/edit', [
+            "author" => $author
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        $paylaod = $request->all();
+
+        $response = Http::put(
+            "http://127.0.0.1:8000/api/author/edit/{$id}",
+            $paylaod
+        );
+
+        return redirect('author');
+    }
 }

@@ -3,16 +3,17 @@
 @section('content')
 <section class="mt-32">
     <div class="w-[800px] mx-auto p-4 border">
-        <h1 class="text-4xl mb-10">Tambah Author</h1>
-        <form action="/author/add" method="post" class="flex flex-col gap-4">
+        <h1 class="text-4xl mb-10">Edit Author</h1>
+        <form action="/author/edit/{{ $author['id'] }}" method="post" class="flex flex-col gap-4">
             @csrf
+            @method('put')
             <div class="flex items-center">
                 <label for="name" class="block w-[100px] mr-8">Nama</label>
-                <input type="text" id="name" name="name" class="px-1 border border-slate-500">
+                <input type="text" id="name" name="name" class="px-1 border border-slate-500" value="{{ $author['name'] }}">
             </div>
             <div class="flex items-center">
                 <label for="real_name" class="block w-[100px] mr-8">Nama Asli</label>
-                <input type="text" id="real_name" name="real_name" class="px-1 border border-slate-500">
+                <input type="text" id="real_name" name="real_name" class="px-1 border border-slate-500" value="{{ $author['real_name'] }}">
             </div>
             <div class="flex items-center">
                 <p for="" class="w-[100px] mr-8">Gender</p>
@@ -23,11 +24,11 @@
             </div>
             <div class="flex items-center">
                 <label for="birthdate" class="block w-[100px] mr-8">Tanggal Lahir</label>
-                <input type="date" id="birthdate" name="birthdate" class="px-1 border border-slate-500">
+                <input type="date" id="birthdate" name="birthdate" class="px-1 border border-slate-500" value="{{ $author['birthdate'] }}">
             </div>
             <div class="flex items-center">
                 <label for="image" class="block w-[100px] mr-8">Foto</label>
-                <input type="text" id="image" name="image" class="px-1 border border-slate-500">
+                <input type="text" id="image" name="image" class="px-1 border border-slate-500" value="{{ $author['image'] }}">
             </div>
             <button type="submit" class="w-fit px-2 py-1 bg-green-600 text-white rounded-md">Submit</button>
         </form>
