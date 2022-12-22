@@ -47,4 +47,17 @@ class AuthorController extends Controller
     public function add() {
         return view('author/add');
     }
+
+    public function store(Request $request) {
+        // dd($request->all());
+
+        $paylaod = $request->all();
+
+        $response = Http::post(
+            "http://127.0.0.1:8000/api/author/add",
+            $paylaod
+        );
+
+        return redirect('author');
+    }
 }
