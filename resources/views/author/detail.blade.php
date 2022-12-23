@@ -22,7 +22,7 @@
         </p>
         <p>
             <span>Foto: </span>
-            <span>{{ $author["image"] }}</span>
+            <img src="{{ Storage::url($author['image']) }}" alt="image" class="w-[200px]">
         </p>
     </div>
     <a href="/author" class="text-blue-500 underline">Back</a>

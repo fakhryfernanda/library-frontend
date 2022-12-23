@@ -4,7 +4,7 @@
 <section class="mt-32">
     <div class="w-[800px] mx-auto p-4 border">
         <h1 class="text-4xl mb-10">Tambah Author</h1>
-        <form action="/author/add" method="post" class="flex flex-col gap-4">
+        <form action="/author/add" method="post" class="flex flex-col gap-4" enctype="multipart/form-data">
             @csrf
             <div class="flex items-center">
                 <label for="name" class="block w-[100px] mr-8">Nama</label>
@@ -27,7 +27,7 @@
             </div>
             <div class="flex items-center">
                 <label for="image" class="block w-[100px] mr-8">Foto</label>
-                <input type="text" id="image" name="image" class="px-1 border border-slate-500">
+                <input type="file" id="image" name="image" class="px-1 border border-slate-500">
             </div>
             <button type="submit" class="w-fit px-2 py-1 bg-green-600 text-white rounded-md">Submit</button>
         </form>

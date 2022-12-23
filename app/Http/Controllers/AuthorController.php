@@ -49,11 +49,13 @@ class AuthorController extends Controller
     }
 
     public function store(Request $request) {
-        $paylaod = $request->all();
-
+        $payload = $request->all();
+        
+        $payload['image'] = $request->file("image")->store("images", "public");
+        // dd($payload);
         $response = Http::post(
             "http://127.0.0.1:8000/api/author/add",
-            $paylaod
+            $payload
         );
 
         return redirect('author');

@@ -17,12 +17,14 @@
         <tbody>
             @foreach ($authors as $author)
                 <tr>
-                    <td class="py-1 border px-4 text-center">{{ $author['name'] }}</td>
-                    <td class="py-1 border px-4 text-center">{{ $author['real_name'] }}</td>
-                    <td class="py-1 border px-4 text-center">{{ $author['gender'] }}</td>
-                    <td class="py-1 border px-4 text-center">{{ $author['birthdate'] }}</td>
-                    <td class="py-1 border px-4 text-center">{{ $author['image'] }}</td>
-                    <td class="py-1 border px-4 text-center text-blue-500 underline">
+                    <td class="p-2 border px-4 text-center">{{ $author['name'] }}</td>
+                    <td class="p-2 border px-4 text-center">{{ $author['real_name'] }}</td>
+                    <td class="p-2 border px-4 text-center">{{ $author['gender'] }}</td>
+                    <td class="p-2 border px-4 text-center">{{ $author['birthdate'] }}</td>
+                    <td class="p-2 border px-4 text-center">
+                        <img src="{{ Storage::url($author['image']) }}" alt="image" class="w-[200px]">
+                    </td>
+                    <td class="p-2 border px-4 text-center text-blue-500 underline">
                         <a href="author/detail/{{ $author['id'] }}" class="mr-4">Detail</a>
                         <form action="author/delete/{{ $author['id'] }}" method="post" class="inline">
                             @csrf
